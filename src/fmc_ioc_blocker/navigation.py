@@ -73,7 +73,7 @@ def apply_monitor_filter(page: Page, out_dir: Path) -> None:
     page.locator(SELECTORS["filter_bubble"]).get_by_text("Monitor", exact=True).click()
 
     # Apply
-    page.get_by_role("button", name="Apply").click()
+    page.locator("button.btn.btn-primary").filter(has_text="Apply").click()
 
     wait_visible(page, SELECTORS["grid"])
     screenshot(page, out_dir, "after_monitor_filter")
